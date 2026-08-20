@@ -1,0 +1,383 @@
+<div id="app">
+
+  <canvas id="spaceCanvas"></canvas>
+
+  <div class="noise"></div>
+  <div class="vignette"></div>
+
+  <header class="navbar">
+    <div class="logo" onclick="goHome()">
+      <div class="logo-core"></div>
+      <span>NEXUS<span>PLAY</span></span>
+    </div>
+
+    <nav>
+      <button class="nav-link active" data-page="home">HOME</button>
+      <button class="nav-link" data-page="games">GAMES</button>
+      <button class="nav-link" data-page="about">ABOUT</button>
+    </nav>
+
+    <button class="profile-btn" onclick="openAuth()">
+      <span class="profile-dot"></span>
+      ACCOUNT
+    </button>
+  </header>
+
+  <!-- HOME -->
+
+  <main id="home" class="page active">
+
+    <section class="hero">
+
+      <div class="hero-grid"></div>
+
+      <div class="orb-system">
+        <div class="giant-orb"></div>
+        <div class="orb-glow"></div>
+
+        <div class="ring ring-a"></div>
+        <div class="ring ring-b"></div>
+        <div class="ring ring-c"></div>
+
+        <div class="mini-orb orb-a"></div>
+        <div class="mini-orb orb-b"></div>
+        <div class="mini-orb orb-c"></div>
+      </div>
+
+      <div class="hero-content">
+
+        <div class="status">
+          <span></span>
+          SYSTEM ONLINE
+        </div>
+
+        <h1>
+          ENTER THE
+          <strong>PLAYVERSE</strong>
+        </h1>
+
+        <p>
+          A cinematic arcade built for players.
+          Jump between worlds, chase high scores,
+          and discover your next obsession.
+        </p>
+
+        <div class="hero-actions">
+          <button class="main-button" onclick="openGames()">
+            PLAY NOW
+            <b>→</b>
+          </button>
+
+          <button class="ghost-button" onclick="scrollToFeatured()">
+            EXPLORE
+          </button>
+        </div>
+
+      </div>
+
+      <div class="hero-bottom">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+    <section class="featured" id="featured">
+
+      <div class="section-head">
+        <div>
+          <span class="section-number">01 / ARCADE</span>
+          <h2>Featured Games</h2>
+        </div>
+
+        <button onclick="openGames()" class="view-all">
+          VIEW ALL →
+        </button>
+      </div>
+
+      <div class="featured-grid">
+
+        <article class="feature-card large" onclick="launchGame('space')">
+          <div class="card-bg space-bg"></div>
+
+          <div class="card-content">
+            <span class="game-type">ACTION / ARCADE</span>
+            <h3>NEON<br>INVASION</h3>
+            <p>Survive the endless fleet.</p>
+
+            <button>PLAY GAME →</button>
+          </div>
+
+          <div class="card-orb"></div>
+        </article>
+
+        <article class="feature-card" onclick="launchGame('snake')">
+          <div class="card-bg snake-bg"></div>
+
+          <div class="card-content">
+            <span class="game-type">CLASSIC</span>
+            <h3>NEON<br>SNAKE</h3>
+            <p>Grow. Survive. Dominate.</p>
+            <button>PLAY →</button>
+          </div>
+        </article>
+
+        <article class="feature-card" onclick="launchGame('breakout')">
+          <div class="card-bg break-bg"></div>
+
+          <div class="card-content">
+            <span class="game-type">ARCADE</span>
+            <h3>BREAK<br>OUT</h3>
+            <p>Destroy the entire wall.</p>
+            <button>PLAY →</button>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="stats-section">
+
+      <div>
+        <strong>06</strong>
+        <span>PLAYABLE GAMES</span>
+      </div>
+
+      <div>
+        <strong>∞</strong>
+        <span>HIGH SCORES</span>
+      </div>
+
+      <div>
+        <strong>01</strong>
+        <span>MISSION</span>
+      </div>
+
+      <div>
+        <strong>0$</strong>
+        <span>TO PLAY</span>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- GAMES -->
+
+  <main id="games" class="page">
+
+    <section class="games-header">
+
+      <div>
+        <span class="section-number">02 / LIBRARY</span>
+        <h1>THE ARCADE</h1>
+        <p>Choose your game. Enter the arena.</p>
+      </div>
+
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="search" placeholder="Search games..." />
+      </div>
+
+    </section>
+
+    <section class="game-library">
+
+      <article class="game-tile" data-name="neon invasion space shooter" onclick="launchGame('space')">
+        <div class="tile-art art-space">
+          <span>🚀</span>
+        </div>
+        <div class="tile-info">
+          <small>ACTION</small>
+          <h2>Neon Invasion</h2>
+          <p>Destroy the incoming fleet.</p>
+          <button>PLAY</button>
+        </div>
+      </article>
+
+      <article class="game-tile" data-name="neon snake" onclick="launchGame('snake')">
+        <div class="tile-art art-snake">
+          <span>🐍</span>
+        </div>
+        <div class="tile-info">
+          <small>CLASSIC</small>
+          <h2>Neon Snake</h2>
+          <p>How long can you survive?</p>
+          <button>PLAY</button>
+        </div>
+      </article>
+
+      <article class="game-tile" data-name="breakout" onclick="launchGame('breakout')">
+        <div class="tile-art art-break">
+          <span>🧱</span>
+        </div>
+        <div class="tile-info">
+          <small>ARCADE</small>
+          <h2>Breakout</h2>
+          <p>Destroy every block.</p>
+          <button>PLAY</button>
+        </div>
+      </article>
+
+      <article class="game-tile" data-name="pong neon pong" onclick="launchGame('pong')">
+        <div class="tile-art art-pong">
+          <span>🏓</span>
+        </div>
+        <div class="tile-info">
+          <small>CLASSIC</small>
+          <h2>Neon Pong</h2>
+          <p>Beat the AI.</p>
+          <button>PLAY</button>
+        </div>
+      </article>
+
+      <article class="game-tile" data-name="click rush reaction" onclick="launchGame('click')">
+        <div class="tile-art art-click">
+          <span>⚡</span>
+        </div>
+        <div class="tile-info">
+          <small>REACTION</small>
+          <h2>Click Rush</h2>
+          <p>Ten seconds. Maximum clicks.</p>
+          <button>PLAY</button>
+        </div>
+      </article>
+
+      <article class="game-tile" data-name="memory match puzzle" onclick="launchGame('memory')">
+        <div class="tile-art art-memory">
+          <span>🧠</span>
+        </div>
+        <div class="tile-info">
+          <small>PUZZLE</small>
+          <h2>Memory Matrix</h2>
+          <p>Find every matching pair.</p>
+          <button>PLAY</button>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- ABOUT -->
+
+  <main id="about" class="page">
+
+    <section class="about-page">
+
+      <span class="section-number">03 / NEXUS</span>
+
+      <h1>BUILT FOR<br><span>PLAYERS.</span></h1>
+
+      <p>
+        NexusPlay is a browser-first arcade concept designed
+        around fast games, cinematic presentation and zero
+        installation.
+      </p>
+
+      <div class="about-box">
+        <div>
+          <strong>01</strong>
+          <span>NO INSTALLATION</span>
+        </div>
+
+        <div>
+          <strong>02</strong>
+          <span>PLAY IN YOUR BROWSER</span>
+        </div>
+
+        <div>
+          <strong>03</strong>
+          <span>MORE GAMES COMING</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- GAME -->
+
+  <div id="gameOverlay">
+
+    <div class="game-header">
+
+      <button onclick="closeGame()">← BACK</button>
+
+      <div>
+        <small id="gameCategory">ARCADE</small>
+        <h2 id="gameTitle">GAME</h2>
+      </div>
+
+      <strong id="score">SCORE 0000</strong>
+
+    </div>
+
+    <div id="gameStage"></div>
+
+  </div>
+
+
+  <!-- AUTH -->
+
+  <div id="auth">
+
+    <div class="auth-box">
+
+      <button class="auth-close" onclick="closeAuth()">×</button>
+
+      <div class="auth-logo">
+        <div class="logo-core"></div>
+        NEXUSPLAY
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="authMode('login')">
+          LOGIN
+        </button>
+
+        <button class="auth-tab" onclick="authMode('signup')">
+          SIGN UP
+        </button>
+      </div>
+
+      <div id="loginBox">
+
+        <h2>Welcome back.</h2>
+        <p>Enter the Nexus.</p>
+
+        <input id="loginEmail" type="email" placeholder="Email">
+        <input id="loginPassword" type="password" placeholder="Password">
+
+        <button class="auth-submit" onclick="login()">
+          ENTER NEXUS →
+        </button>
+
+      </div>
+
+      <div id="signupBox" class="hidden">
+
+        <h2>Create your account.</h2>
+        <p>Join the Playverse.</p>
+
+        <input id="signupName" placeholder="Username">
+        <input id="signupEmail" type="email" placeholder="Email">
+        <input id="signupPassword" type="password" placeholder="Password">
+
+        <button class="auth-submit" onclick="signup()">
+          CREATE ACCOUNT →
+        </button>
+
+      </div>
+
+      <div id="authMessage"></div>
+
+    </div>
+
+  </div>
+
+</div>
